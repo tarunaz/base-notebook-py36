@@ -10,9 +10,9 @@ This image extends from the Apache Spark 2.3.0 image that is built from this rep
 ## Usage
 
 Build the image using the provided Dockerfile
-docker build -f Dockerfile -t base-notebook-py36 .
-docker tag <imageid> tmehrarh/base-notebook-py36:latest
-docker push tmehrarh/base-notebook-py36:latest
+- docker build -f Dockerfile -t base-notebook-py36 .
+- docker tag <imageid> tmehrarh/base-notebook-py36:latest
+- docker push tmehrarh/base-notebook-py36:latest
   
 ## Notes
 
