@@ -2,25 +2,18 @@
 [![Docker build](https://img.shields.io/docker/automated/radanalyticsio/base-notebook.svg)](https://hub.docker.com/r/radanalyticsio/base-notebook)
 [![Layers info](https://images.microbadger.com/badges/image/radanalyticsio/base-notebook.svg)](https://microbadger.com/images/radanalyticsio/base-notebook)
 
-# base-notebook
+# base-notebook-py36
 
-This is a container image intended to make it easy to run Jupyter notebooks with Apache Spark on OpenShift. You can use it as-is (by adding it to a project), or you can use it as the basis for another image. In the latter case, you'll probably want to add some notebooks, data, and/or additional packages to the derived image.
+This is a container image intended to make it easy to run Jupyter notebooks with python 3.6 with Apache Spark 2.3.0 on OpenShift. 
+This image extends from the Apache Spark 2.3.0 image that is built from this repository at
 
 ## Usage
 
-### As a standalone image
-
-For your convenience, binary image builds are available from Docker Hub.
-
-* Add the image `radanalyticsio/base-notebook` to an OpenShift project.
-* Set `JUPYTER_NOTEBOOK_PASSWORD` in the pod environment to something you can remember (this step is optional but highly recommended; if you don't do this, you'll need to trawl the logs for an access token for your new notebook).
-* Create a route to the pod.
-
-### As a base image
-
-* As `nbuser` (uid 1011), add notebooks to `/notebooks` and data to `/data`.
-* This process should be easier in the future; stay tuned!
-
+Build the image using the provided Dockerfile
+docker build -f Dockerfile -t base-notebook-py36 .
+docker tag <imageid> tmehrarh/base-notebook-py36:latest
+docker push tmehrarh/base-notebook-py36:latest
+  
 ## Notes
 
 Make sure that this notebook image is running the same version of Spark as the external cluster you want to connect it to.
